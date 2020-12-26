@@ -1,4 +1,4 @@
-# numbers_and_letters_for_todlers
+# numbers_and_letters_for_toddlers
 Todlers can learn to recognize numbers and letters
 
 This educational program requires to build at least:
