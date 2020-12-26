@@ -40,9 +40,11 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
-INCLUDEPATH += D:\lib\portaudio\include
-LIBS += D:\Users\Tom\code\numbersandletters\audio\audio.raw.o
-LIBS += -LD:\lib\portaudio\lib\.libs\ -lportaudio
+ D:\lib\portaudio
+
+INCLUDEPATH +=$$(PORT_AUDIO_ROOT)\include
+LIBS += $$PWD\audio\audio.raw.o
+LIBS += -L$$(PORT_AUDIO_ROOT)\lib\.libs\ -lportaudio
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
