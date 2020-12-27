@@ -2,7 +2,7 @@
 Todlers can learn to recognize numbers and letters
 
 This educational program requires to build at least:
--Qt 5.15.0
+-Qt 5 (verified with Qt 5.15.0)
 -PortAudio V19.6.0
 -Bash or MSYS
 
@@ -18,3 +18,4 @@ $ make
 your binary will be available in the release folder.
 
 There will soon be a build for the Windows 10 platform available as a download. 
+
