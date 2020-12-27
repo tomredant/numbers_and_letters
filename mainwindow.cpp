@@ -5,6 +5,7 @@
 #include <QDebug>
 #include "soundplayer.h"
 #include "aboutwindow.h"
+#include "gameselector.h"
 MainWindow::MainWindow(bool letters) :
     m_ui(new Ui::MainWindow),
     m_letters(letters)
@@ -46,9 +47,17 @@ MainWindow::MainWindow(bool letters) :
     }
     connect(m_ui->actionAbout,SIGNAL(triggered()),this,SLOT(showAbout()));
     connect(m_ui->actionQuit,SIGNAL(triggered()),this,SLOT(clickQuit()));
+    connect(m_ui->actionRestart,SIGNAL(triggered()),this,SLOT(clickRestart()));
+
 
 }
 
+
+void MainWindow::clickRestart() {
+    GameSelector* gameSelector = new GameSelector();
+    gameSelector->show();
+    close();
+}
 void MainWindow::clickQuit() {
     QApplication::quit();
 }

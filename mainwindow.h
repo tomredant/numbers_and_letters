@@ -17,6 +17,7 @@ private slots:
     void playback();
     void showAbout();
     void clickQuit();
+    void clickRestart();
 private:
     Ui::MainWindow *m_ui;
     bool m_letters;
