@@ -7,14 +7,14 @@
 #include "aboutwindow.h"
 #include "gameselector.h"
 MainWindow::MainWindow(bool letters) :
-    m_ui(new Ui::MainWindow),
+    ui(new Ui::MainWindow),
     m_letters(letters)
 {
     m_aboutWindow = NULL;
-    m_ui->setupUi(this);
+    ui->setupUi(this);
     setWindowTitle("Free number and Letter Trainer 1.0.0");
     QBoxLayout* layout = new QBoxLayout(QBoxLayout::TopToBottom);
-    m_ui->centralWidget->setLayout(layout);
+    ui->centralWidget->setLayout(layout);
     QFont font("Helvetica", 30, QFont::Bold);
     QBoxLayout* currentLayout = NULL;
     if(m_letters) {
@@ -45,9 +45,9 @@ MainWindow::MainWindow(bool letters) :
             currentLayout->addWidget(button);
         }
     }
-    connect(m_ui->actionAbout,SIGNAL(triggered()),this,SLOT(showAbout()));
-    connect(m_ui->actionQuit,SIGNAL(triggered()),this,SLOT(clickQuit()));
-    connect(m_ui->actionRestart,SIGNAL(triggered()),this,SLOT(clickRestart()));
+    connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(showAbout()));
+    connect(ui->actionQuit,SIGNAL(triggered()),this,SLOT(clickQuit()));
+    connect(ui->actionRestart,SIGNAL(triggered()),this,SLOT(clickRestart()));
 
 
 }
@@ -82,5 +82,5 @@ void MainWindow::playback() {
 
 MainWindow::~MainWindow()
 {
-    delete m_ui;
+    delete ui;
 }

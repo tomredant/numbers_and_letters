@@ -19,7 +19,7 @@ private slots:
     void clickQuit();
     void clickRestart();
 private:
-    Ui::MainWindow *m_ui;
+    Ui::MainWindow *ui;
     bool m_letters;
     AboutWindow* m_aboutWindow;
 };
