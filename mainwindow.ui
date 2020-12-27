@@ -44,22 +44,22 @@
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>17</height>
+     <height>24</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuQuit">
+   <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>Bestand</string>
+     <string>File</string>
     </property>
-    <addaction name="actionAfsluiten"/>
+    <addaction name="actionQuit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="actionOver"/>
+    <addaction name="actionAbout"/>
    </widget>
-   <addaction name="menuQuit"/>
+   <addaction name="menuFile"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -71,14 +71,14 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionOver">
+  <action name="actionAbout">
    <property name="text">
-    <string>Over</string>
+    <string>About</string>
    </property>
   </action>
-  <action name="actionAfsluiten">
+  <action name="actionQuit">
    <property name="text">
-    <string>Afsluiten</string>
+    <string>Quit</string>
    </property>
   </action>
  </widget>

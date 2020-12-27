@@ -6,19 +6,21 @@
 namespace Ui {
 class MainWindow;
 }
-
+class AboutWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
 public:
     explicit MainWindow(bool letters);
     ~MainWindow();
-public slots:
+private slots:
     void playback();
+    void showAbout();
+    void clickQuit();
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *m_ui;
     bool m_letters;
+    AboutWindow* m_aboutWindow;
 };
 
 #endif // MAINWINDOW_H
