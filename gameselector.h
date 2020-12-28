@@ -6,7 +6,7 @@
 namespace Ui {
 class GameSelector;
 }
-
+class MainWindow;
 class GameSelector : public QWidget
 {
     Q_OBJECT
@@ -19,6 +19,7 @@ private slots:
     void openNumberGame();
 private:
     Ui::GameSelector *m_ui;
+    MainWindow *m_mainWindow;
 };
 
 #endif // GAMESELECTOR_H

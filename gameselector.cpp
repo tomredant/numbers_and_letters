@@ -5,6 +5,7 @@ GameSelector::GameSelector(QWidget *parent) :
     QWidget(parent),
     m_ui(new Ui::GameSelector)
 {
+    m_mainWindow = NULL;
     m_ui->setupUi(this);
     setWindowTitle(tr("Select game"));
     connect(m_ui->pushButtonNumbers, SIGNAL(clicked()), this, SLOT(openNumberGame()));
@@ -18,13 +19,19 @@ GameSelector::~GameSelector()
 }
 
 void GameSelector::openLetterGame() {
-    close();
-    MainWindow* w = new MainWindow(true);
-    w->show();
+    hide();
+    if(m_mainWindow != NULL)
+        delete m_mainWindow;
+    m_mainWindow = new MainWindow(true);
+    connect(m_mainWindow, SIGNAL(restart()), this,SLOT(show()));
+    m_mainWindow->show();
 }
 
 void GameSelector::openNumberGame() {
-    close();
-    MainWindow* w = new MainWindow(false);
-    w->show();
+    hide();
+    if(m_mainWindow != NULL)
+        delete m_mainWindow;
+    m_mainWindow= new MainWindow(false);
+    connect(m_mainWindow, SIGNAL(restart()), this,SLOT(show()));
+    m_mainWindow->show();
 }

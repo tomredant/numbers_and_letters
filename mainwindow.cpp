@@ -6,6 +6,18 @@
 #include "soundplayer.h"
 #include "aboutwindow.h"
 #include "gameselector.h"
+#include <QThread>
+
+
+MainWindow::~MainWindow() {
+    m_playerThread->quit();
+    m_playerThread->wait();
+    delete m_playerThread;
+    delete m_player;
+    delete ui;
+
+}
+
 MainWindow::MainWindow(bool letters) :
     ui(new Ui::MainWindow),
     m_letters(letters)
@@ -48,15 +60,18 @@ MainWindow::MainWindow(bool letters) :
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(showAbout()));
     connect(ui->actionQuit,SIGNAL(triggered()),this,SLOT(clickQuit()));
     connect(ui->actionRestart,SIGNAL(triggered()),this,SLOT(clickRestart()));
-
+    m_playerThread = new QThread();
+    m_playerThread->setObjectName("Audio player thread");
+    m_playerThread->start();
+    m_player = new SoundPlayer();
+    m_player->moveToThread(m_playerThread);
 
 }
 
 
 void MainWindow::clickRestart() {
-    GameSelector* gameSelector = new GameSelector();
-    gameSelector->show();
-    close();
+    hide();
+    emit restart();
 }
 void MainWindow::clickQuit() {
     QApplication::quit();
@@ -76,11 +91,5 @@ void MainWindow::playback() {
         fileNumber = text.toUtf8().at(0)-0x41+100; //0x41 is the hex code for the char A.
     else
         fileNumber = text.toInt();
-    SoundPlayer player;
-    player.playSoundFile(fileNumber);
-}
-
-MainWindow::~MainWindow()
-{
-    delete ui;
+    QMetaObject::invokeMethod(m_player, "playSoundFile", Q_ARG(int, fileNumber));
 }
