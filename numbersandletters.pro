@@ -1,8 +1,10 @@
 QT       += core gui
 #uncomment the following three lines for static linking
-#CONFIG+=static
-#QMAKE_LFLAGS+=-static -static-libgcc -static-libstdc++ -lstdc++
-#DEFINES+=STATIC
+TRANSLATIONS = numbersandletters_nl.ts
+
+CONFIG+=static
+QMAKE_LFLAGS+=-static -static-libgcc -static-libstdc++ -lstdc++
+DEFINES+=STATIC
 VERSION = 1.0.0
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = numbers_and_letters
@@ -35,3 +37,6 @@ LIBS += -L$$(PORT_AUDIO_ROOT)/lib/.libs/ -lportaudio
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    numbersandletters.qrc

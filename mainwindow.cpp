@@ -12,7 +12,7 @@ MainWindow::MainWindow(bool letters) :
 {
     m_aboutWindow = NULL;
     ui->setupUi(this);
-    setWindowTitle("Free number and Letter Trainer 1.0.0");
+    setWindowTitle(tr("Free number and Letter Trainer 1.0.0"));
     QBoxLayout* layout = new QBoxLayout(QBoxLayout::TopToBottom);
     ui->centralWidget->setLayout(layout);
     QFont font("Helvetica", 30, QFont::Bold);
