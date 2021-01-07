@@ -4,10 +4,9 @@
 #include <QPushButton>
 #include <QDebug>
 #include "soundplayer.h"
-#include "aboutwindow.h"
 #include "gameselector.h"
 #include <QThread>
-
+#include "showlicense.h"
 
 MainWindow::~MainWindow() {
     m_playerThread->quit();
@@ -78,9 +77,9 @@ void MainWindow::clickQuit() {
 }
 
 void MainWindow::showAbout() {
-    if(m_aboutWindow == NULL)
-        m_aboutWindow = new AboutWindow();
-    m_aboutWindow->show();
+    std::vector<std::string> libsToShow;
+    libsToShow.push_back("Qt5.15.3");
+    showLicenseDialog(libsToShow);
 }
 
 void MainWindow::playback() {

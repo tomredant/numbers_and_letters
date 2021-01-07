@@ -8,6 +8,7 @@ SoundPlayer::SoundPlayer() {
 
 }
 bool SoundPlayer::playSoundFile(int fileNumber) {
+    //qDebug() << Pa_GetVersionText();
     const int SAMPLE_RATE = 44100;
     const double TRACK_DURATION = 1.5; //duration of the track in seconds.
     const int DURATION_BYTES = (int) (2*SAMPLE_RATE*TRACK_DURATION); //factor 2 is due 16 bit sound.
