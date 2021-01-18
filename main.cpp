@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 
     std::vector<std::string> libs;
     libs.push_back("Numbers and letters-1.0#The software is written by Tom Redant. Source files can be obtained from https://github.com/tomredant/numbers_and_letters#gpl-3.0");
+    libs.push_back("Qt5.15.3#Source files can be obtained from http://www.qt.io.#lgpl-3.0");
     libs.push_back("MinGW-W64-builds-4.3.5##MinGW-w64");
     libs.push_back("libstdc++-6##gpl-3.0_runtime_exception");
     libs.push_back(R"MYSTRING(PortAudio V19.6.0-devel##/*
@@ -69,7 +70,6 @@ int main(int argc, char *argv[])
                  formats, including 32 bit floating point, and will be converted to the
                  native format internally.
 )MYSTRING");
-    //TODO: also add portaudio
     showLicenseDialog(libs);
     if(!waitLicenseDialogAccepted())
         return 0;

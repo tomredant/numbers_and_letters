@@ -8,10 +8,10 @@ class SoundPlayer : public QObject
     Q_OBJECT
 public:
     SoundPlayer();
+public slots:
     bool playSoundFile(int fileNumber);
 signals:
 
-public slots:
 };
 
 #endif // SOUNDPLAYER_H

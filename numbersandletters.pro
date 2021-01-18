@@ -29,9 +29,10 @@ INCLUDEPATH +=$$(PORT_AUDIO_ROOT)/include
 LIBS += $$PWD/audio/audio.raw.o
 LIBS += -L$$(PORT_AUDIO_ROOT)/lib/ -lportaudio
 
-INCLUDEPATH +=$$(SHOWLICENSE_ROOT)
+INCLUDEPATH += $$(SHOWLICENSE_ROOT)
 LIBS += -L$$(SHOWLICENSE_ROOT) -lshowlicense
 
 
 RESOURCES += \
     numbersandletters.qrc
+b
